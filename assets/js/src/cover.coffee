@@ -16,7 +16,7 @@ $ ->
   $('#menu-button').click ->
     $('.cover, main, #menu-button, html').toggleClass 'expanded'
 
-  $("#{window.open_button}, #avatar-link").click (event) ->
+  $("#{window.open_button}, #avatar-link, .nav-home").click (event) ->
     if Uno.is 'page', 'home'
       event.preventDefault()
       location.hash = if location.hash is '' then '#open' else ''
