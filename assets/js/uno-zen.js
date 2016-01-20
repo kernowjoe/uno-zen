@@ -1,6 +1,6 @@
 /**
  * uno-zen - Minimalist and Elegant theme for Ghost
- * @version 2.6.10
+ * @version 2.7.0
  * @link    https://github.com/kikobeats/uno-zen
  * @author  Kiko Beats (https://github.com/kikobeats)
  * @license MIT
@@ -26,7 +26,7 @@ Prism.languages.sql={comment:{pattern:/(^|[^\\])(?:\/\*[\w\W]*?\*\/|(?:--|\/\/|#
   var Uno;
 
   window.Uno = Uno = {
-    version: '2.6.10',
+    version: '2.7.0',
     app: (function() {
       return document.body;
     })(),
@@ -103,6 +103,12 @@ Prism.languages.sql={comment:{pattern:/(^|[^\\])(?:\/\*[\w\W]*?\*\/|(?:--|\/\/|#
     $('#profile-resume').text(window.profile_resume);
   }
 
+  if (window.posts_headline) {
+    $('#posts-headline').text(window.posts_headline);
+  }
+
+  window.open_button = window.open_button || '.nav-posts > a';
+
 }).call(this);
 
 (function() {
@@ -143,9 +149,8 @@ Prism.languages.sql={comment:{pattern:/(^|[^\\])(?:\/\*[\w\W]*?\*\/|(?:--|\/\/|#
 (function() {
   'use strict';
   $(function() {
-    var _animate, _expand, isOpen, openButton;
+    var _animate, _expand, isOpen;
     isOpen = location.hash === '#open';
-    openButton = window.open_button || '.nav-posts > a';
     _animate = function() {
       return setTimeout(function() {
         return $('.cover').addClass('animated');
@@ -158,7 +163,7 @@ Prism.languages.sql={comment:{pattern:/(^|[^\\])(?:\/\*[\w\W]*?\*\/|(?:--|\/\/|#
     $('#menu-button').click(function() {
       return $('.cover, main, #menu-button, html').toggleClass('expanded');
     });
-    $(openButton + ", #avatar-link").click(function(event) {
+    $(window.open_button + ", #avatar-link").click(function(event) {
       if (Uno.is('page', 'home')) {
         event.preventDefault();
         location.hash = location.hash === '' ? '#open' : '';
