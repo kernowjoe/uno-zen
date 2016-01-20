@@ -11,7 +11,7 @@ $ ->
     , 1000)
 
   _expand = (options)->
-    $('main, .cover, .links > li, html').toggleClass 'expanded'
+    $('main, .cover, .links > li, html, #menu-button').toggleClass 'expanded'
     Uno.search.form options.form
 
   $('#menu-button').click ->
@@ -24,6 +24,8 @@ $ ->
       return $('#menu-button').trigger 'click' unless Uno.is 'device', 'desktop'
       _expand form: 'toggle'
 
-  if (Uno.is 'device', 'desktop') and (Uno.is 'page', 'home')
+  if (Uno.is 'page', 'home')
     _animate()
     _expand form: 'hide' if !isOpen
+
+

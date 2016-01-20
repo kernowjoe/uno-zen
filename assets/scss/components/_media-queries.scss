@@ -37,7 +37,7 @@
   #menu-button {
     position: fixed;
     top: .5rem;
-    left: 13.5rem;
+    left: calc(100% - 42px - 0.5em);//13.5rem;
     z-index: 2;
     display: block;
     transition: all $aside-animation-time;
@@ -64,7 +64,7 @@
     box-shadow: none;
 
     &.expanded {
-      width: 16rem;
+      width: 100%;
       transform: translate3d(0, 0, 0);
       border-right: 1px solid $gray;
       box-shadow: 11px -10px 1px -9px $gray-light;
